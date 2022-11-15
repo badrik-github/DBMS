@@ -41,3 +41,4 @@ This is a learning project should be used into development/production environmen
         - Interest rate will be calculated based on the market situations.
 4. A customer can create a FD.
     1. 6% of interest rate will be provided on an FD.
+    
