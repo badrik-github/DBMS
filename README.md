@@ -8,7 +8,7 @@ This is a learning project should be used into development/production environmen
 ## RoadMap:
 
 - [x] [Define rules](#rules).
-- [ ] Create rough schema banking system.
+- [x] [Create rough schema banking system](#schema).
 - [ ] Create ER diagram.
 - [ ] Create Tables and define relations.
 - [ ] Create function.
@@ -19,7 +19,7 @@ This is a learning project should be used into development/production environmen
 ## Requirement  
 1. Operating System: [Ubuntu](https://ubuntu.com/)
 2. Database: [postgreSql](https://www.postgresql.org/docs/current/app-psql.html)
-3. Tool: [PgAdmin](https://www.pgadmin.org/), [diagrams.net](https://app.diagrams.net/)
+3. Tool: [PgAdmin](https://www.pgadmin.org/), [drawsql.app](https://drawsql.app/)
 
 ## Rules 
 
@@ -42,3 +42,6 @@ This is a learning project should be used into development/production environmen
 4. A customer can create a FD.
     1. 6% of interest rate will be provided on an FD.
     
+## Schema Design
+- DesignLink:- [Link](https://drawsql.app/teams/badrik-team/diagrams/banking)
+![SchemaDesign](./SchemaDesign/drawSQL-export-2022-11-17_08_22.png)
