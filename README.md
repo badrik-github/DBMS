@@ -8,7 +8,7 @@ This is a learning project should be used into development/production environmen
 ## RoadMap:
 
 - [x] [Define rules](#rules).
-- [x] [Create rough schema banking system](#schema).
+- [x] [Create rough schema banking system](#schema-design).
 - [ ] Create ER diagram.
 - [ ] Create Tables and define relations.
 - [ ] Create function.
