@@ -14,6 +14,7 @@ This is a learning project should be used into development/production environmen
 - [ ] Create function.
 - [ ] Create Triggers.
 - [ ] Enter dummy data.
+- [ ] Create views.
 - [ ] Write queries.
 
 ## Requirement  
