@@ -9,7 +9,7 @@ This is a learning project should be used into development/production environmen
 
 - [x] [Define rules](#rules).
 - [x] [Create rough schema banking system](#schema-design).
-- [ ] Create ER diagram.
+- [x] [Create ER diagram](#er-diagram)
 - [ ] Create Tables and define relations.
 - [ ] Create function.
 - [ ] Create Triggers.
@@ -42,7 +42,13 @@ This is a learning project should be used into development/production environmen
         - Interest rate will be calculated based on the market situations.
 4. A customer can create a FD.
     1. 6% of interest rate will be provided on an FD.
+    2. In case of early cancellation of FD interest of last month would be deducted.
+5. Every branch will have it's own account with initial balance of 1cr, This balance will be used to give loans, Also when a FD is created FD amount will be deposited to this account.
     
 ## Schema Design
 - DesignLink:- [Link](https://drawsql.app/teams/badrik-team/diagrams/banking)
 ![SchemaDesign](./SchemaDesign/drawSQL-export-2022-11-17_08_22.png)
+
+## ER Diagram
+- Diagram Link:- [Link](https://app.creately.com/d/ZfTP84sSsvS/view)
+![ER Diagram](./SchemaDesign/ER-Diagram.jpg)
