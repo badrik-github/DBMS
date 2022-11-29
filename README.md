@@ -10,7 +10,7 @@ This is a learning project should be used into development/production environmen
 - [x] [Define rules](#rules).
 - [x] [Create rough schema banking system](#schema-design).
 - [x] [Create ER diagram](#er-diagram)
-- [ ] Create Tables and define relations.
+- [x] [Create Tables and define relations](./Schema/tables.sql)
 - [ ] Create function.
 - [ ] Create Triggers.
 - [ ] Enter dummy data.
@@ -47,7 +47,7 @@ This is a learning project should be used into development/production environmen
     
 ## Schema Design
 - DesignLink:- [Link](https://drawsql.app/teams/badrik-team/diagrams/banking)
-![SchemaDesign](./SchemaDesign/drawSQL-export-2022-11-17_08_22.png)
+![SchemaDesign](./SchemaDesign/schema-design.png)
 
 ## ER Diagram
 - Diagram Link:- [Link](https://app.creately.com/d/ZfTP84sSsvS/view)
