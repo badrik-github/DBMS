@@ -11,6 +11,8 @@ This is a learning project should be used into development/production environmen
 - [x] [Create rough schema banking system](#schema-design).
 - [x] [Create ER diagram](#er-diagram)
 - [x] [Create Tables and define relations](./Schema/tables.sql)
+- [x] [Set up db](#set-up-db)
+- [x] [Create pre defined data](#set-up-db)
 - [ ] Create function.
 - [ ] Create Triggers.
 - [ ] Enter dummy data.
@@ -52,3 +54,24 @@ This is a learning project should be used into development/production environmen
 ## ER Diagram
 - Diagram Link:- [Link](https://app.creately.com/d/ZfTP84sSsvS/view)
 ![ER Diagram](./SchemaDesign/ER-Diagram.jpg)
+
+## Set up DB
+- For the simplicity purpose lets create a database **bank** with one user **bank owner**. We can also implement access control/role base access into the database.
+
+    ```sh
+    ##Create Role
+    CREATE ROLE bankowner WITH LOGIN PASSWORD 'root';
+
+    ##Create Database
+    CREATE DATABASE bank WITH OWNER = bankowner;
+
+    ##By default anyone can connect the database bank so revoke all permissions from public.    
+    REVOKE ALL ON DATABASE bank FROM PUBLIC;
+
+    ##Login on database bank with bankOwner
+    psql -U bankowner -d bank;
+    ```
+## Pre Defined Data
+1. Area table should contain all list of area with the required information.
+2. Bank needs to be pre-defined.
+3. Every bank has it's own account with balance of 1cr.

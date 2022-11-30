@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS area(
     pin_code integer PRIMARY KEY,
     state varchar(50) NOT NULL,
     district varchar(50) NOT NULL
-)
+);
 
 CREATE TABLE IF NOT EXISTS branch(
     pin_code integer NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS branch(
     CONSTRAINT branch_in_area
     FOREIGN KEY(pin_code) 
     REFERENCES area(pin_code)
-)
+);
 
 CREATE TABLE IF NOT EXISTS employee(
     IFSC_code varchar(50) NOT NULL,
@@ -30,17 +30,18 @@ CREATE TABLE IF NOT EXISTS employee(
     CONSTRAINT employee_of_branch
     FOREIGN KEY(IFSC_code) 
     REFERENCES branch(IFSC_code)
-)
+);
 
 CREATE TABLE IF NOT EXISTS account_type_details(
     account_type account_type PRIMARY KEY,
     interest_rate integer NOT NULL,
     account_management_charges integer   
-)
+);
 
-CREATE SEQUENCE account_sequence
-  start 10000000000
-  increment 1;
+
+-- Sequence is used in account number to create a 11 digit account number
+CREATE SEQUENCE IF NOT EXISTS account_sequence start 10000000000 increment 1;
+
 
 CREATE TABLE IF NOT EXISTS account(
     IFSC_code varchar(50) NOT NULL,
@@ -56,8 +57,8 @@ CREATE TABLE IF NOT EXISTS account(
 
     CONSTRAINT account_type_relation
     FOREIGN KEY(account_type) 
-    REFERENCES account_type_details(account_type),
-)
+    REFERENCES account_type_details(account_type)
+);
 
 CREATE TABLE IF NOT EXISTS account_interest(
     account_number integer NOT NULL,
@@ -70,9 +71,9 @@ CREATE TABLE IF NOT EXISTS account_interest(
 
     CONSTRAINT account_interest_relation
     FOREIGN KEY(account_number) 
-    REFERENCES account(account_number),
+    REFERENCES account(account_number)
 
-)
+);
 
 CREATE TABLE IF NOT EXISTS customer(
     adhare_number integer PRIMARY KEY,
@@ -81,7 +82,7 @@ CREATE TABLE IF NOT EXISTS customer(
     gender gender NOT NULL,
     address varchar(50) NOT NULL,
     dob date NOT NULL
-)
+);
 
 CREATE TABLE IF NOT EXISTS acc_cust_relation(
     account_holder integer NOT NULL,
@@ -96,11 +97,9 @@ CREATE TABLE IF NOT EXISTS acc_cust_relation(
     CONSTRAINT is_owner_of
     FOREIGN KEY(account_number) 
     REFERENCES account(account_number)
-)
+);
 
-CREATE SEQUENCE transaction_sequence
-  start 100000000000
-  increment 1;
+CREATE SEQUENCE IF NOT EXISTS transaction_sequence start 100000000000 increment 1;
 
 CREATE TABLE IF NOT EXISTS transactions(
     transaction_id integer PRIMARY KEY,
@@ -118,7 +117,13 @@ CREATE TABLE IF NOT EXISTS transactions(
     CONSTRAINT receiver_transaction_link
     FOREIGN KEY(receiver_account_number) 
     REFERENCES account(account_number)
-)
+);
+
+CREATE TABLE IF NOT EXISTS loan_type_details(
+    loan_type loan_type PRIMARY KEY,
+    interest_rate integer,
+    pre_payment_charges integer
+);
 
 CREATE TABLE IF NOT EXISTS loan(
     account_number integer NOT NULL,
@@ -138,13 +143,7 @@ CREATE TABLE IF NOT EXISTS loan(
     CONSTRAINT loan_type_relation
     FOREIGN KEY(loan_type) 
     REFERENCES loan_type_details(loan_type)
-)
-
-CREATE TABLE IF NOT EXISTS loan_type_details(
-    loan_type loan_type PRIMARY KEY,
-    interest_rate integer,
-    pre_payment_charges integer
-)
+);
 
 CREATE TABLE IF NOT EXISTS loan_payments(
     transaction_id integer PRIMARY KEY,
@@ -154,8 +153,8 @@ CREATE TABLE IF NOT EXISTS loan_payments(
 
     CONSTRAINT loan_payment_relation
     FOREIGN KEY(loan_id) 
-    REFERENCES laon(loan_id)
-)
+    REFERENCES loan(loan_id)
+);
 
 
 CREATE TABLE IF NOT EXISTS fixed_deposit(
@@ -164,12 +163,12 @@ CREATE TABLE IF NOT EXISTS fixed_deposit(
     amount integer NOT NULL,
     interest_rate integer NOT NULL,
     period_in_years integer NOT NULL,
-    closed boolean NOT NULL
+    closed boolean NOT NULL,
 
     CONSTRAINT fd_account_relation
     FOREIGN KEY(account_number) 
     REFERENCES account(account_number)
-)
+);
 
 CREATE TABLE IF NOT EXISTS fd_interest(
     id integer,
@@ -178,4 +177,4 @@ CREATE TABLE IF NOT EXISTS fd_interest(
     CONSTRAINT fd_interest_relation
     FOREIGN KEY(id) 
     REFERENCES fixed_deposit(id)
-)
+);
