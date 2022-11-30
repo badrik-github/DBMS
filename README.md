@@ -12,7 +12,7 @@ This is a learning project should be used into development/production environmen
 - [x] [Create ER diagram](#er-diagram)
 - [x] [Create Tables and define relations](./Schema/tables.sql)
 - [x] [Set up db](#set-up-db)
-- [x] [Create pre defined data](#set-up-db)
+- [x] [Create pre defined data](#pre-defined-data)
 - [ ] Create function.
 - [ ] Create Triggers.
 - [ ] Enter dummy data.
@@ -75,3 +75,4 @@ This is a learning project should be used into development/production environmen
 1. Area table should contain all list of area with the required information.
 2. Bank needs to be pre-defined.
 3. Every bank has it's own account with balance of 1cr.
+4. Sql file with pre-defined data. [link](./Query/preDefinedData.sql)
