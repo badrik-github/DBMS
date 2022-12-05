@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS account(
 );
 
 CREATE TABLE IF NOT EXISTS account_interest(
-    account_number INTEGER NOT NULL,
+    account_number bigint NOT NULL,
     account_balance_snap INTEGER NOT NULL,
     calculated_rate INTEGER NOT NULL,
     interested_amount INTEGER NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS customer(
 
 CREATE TABLE IF NOT EXISTS acc_cust_relation(
     account_holder VARCHAR(50) NOT NULL,
-    account_number INTEGER NOT NULL,
+    account_number bigint NOT NULL,
     PRIMARY KEY(account_number, account_holder),
     CONSTRAINT account_of_customer FOREIGN KEY(account_holder) REFERENCES customer(adhare_number),
     CONSTRAINT is_owner_of FOREIGN KEY(account_number) REFERENCES account(account_number)

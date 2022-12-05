@@ -67,14 +67,18 @@ INSERT INTO
         account_number,
         account_type,
         balance,
-        opening_date
+        opening_date,
+        bank_internal_account
     )
 VALUES
     (
         'BOBBOPAL67',
         NEXTVAL('account_sequence'),
         'saving',
-        0,
-        SELECT
-            CURRENT_DATE
+        10000000,
+        (
+            SELECT
+                CURRENT_DATE
+        ),
+        TRUE
     );
