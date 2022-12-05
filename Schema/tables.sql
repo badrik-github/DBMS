@@ -39,11 +39,12 @@ CREATE SEQUENCE IF NOT EXISTS account_sequence start 10000000000 increment 1;
 
 CREATE TABLE IF NOT EXISTS account(
     IFSC_code varchar(50) NOT NULL,
-    account_number integer PRIMARY KEY,
+    account_number bigint PRIMARY KEY,
     account_type account_type NOT NULL,
     balance integer DEFAULT 0,
     opening_date date NOT NULL,
     account_freezed boolean NOT NULL DEFAULT false,
+    bank_internal_account boolean NOT NULL DEFAULT false,
     CONSTRAINT account_in_branch FOREIGN KEY(IFSC_code) REFERENCES branch(IFSC_code),
     CONSTRAINT account_type_relation FOREIGN KEY(account_type) REFERENCES account_type_details(account_type)
 );
@@ -54,14 +55,14 @@ CREATE TABLE IF NOT EXISTS account_interest(
     calculated_rate integer NOT NULL,
     interested_amount integer NOT NULL,
     is_deposited boolean DEFAULT false,
-    transaction_id integer NOT NULL,
+    transaction_id bigint NOT NULL,
     calculated_date date NOT NULL,
     CONSTRAINT account_interest_relation FOREIGN KEY(account_number) REFERENCES account(account_number)
 );
 
 CREATE TABLE IF NOT EXISTS customer(
-    adhare_number integer PRIMARY KEY,
-    pan_number varchar(50) UNIQUE NOT NULL,
+    adhare_number integer PRIMARY KEY CHECK (LENGTH(adhare_number) = 12),
+    pan_number varchar(50) UNIQUE NOT NULL CHECK (LENGTH(pan_number) = 10),
     name varchar(50) NOT NULL,
     gender gender NOT NULL,
     address varchar(50) NOT NULL,
@@ -79,7 +80,7 @@ CREATE TABLE IF NOT EXISTS acc_cust_relation(
 CREATE SEQUENCE IF NOT EXISTS transaction_sequence start 100000000000 increment 1;
 
 CREATE TABLE IF NOT EXISTS transactions(
-    transaction_id integer PRIMARY KEY,
+    transaction_id bigint PRIMARY KEY,
     amount_transfered integer NOT NULL,
     sender_account_number integer NOT NULL,
     receiver_account_number integer,
@@ -103,7 +104,7 @@ CREATE TABLE IF NOT EXISTS loan(
     loan_type loan_type NOT NULL,
     emi integer NOT NULL,
     state_date date NOT NULL,
-    transfer_transaction_id integer NOT NULL,
+    transfer_transaction_id bigint NOT NULL,
     duration_in_years integer NOT NULL,
     closed boolean NOT NULL,
     CONSTRAINT loan_account_relation FOREIGN KEY(account_number) REFERENCES account(account_number),
@@ -111,7 +112,7 @@ CREATE TABLE IF NOT EXISTS loan(
 );
 
 CREATE TABLE IF NOT EXISTS loan_payments(
-    transaction_id integer PRIMARY KEY,
+    transaction_id bigint PRIMARY KEY,
     amount integer NOT NULL,
     loan_id integer NOT NULL,
     date_of_payment date NOT NULL,

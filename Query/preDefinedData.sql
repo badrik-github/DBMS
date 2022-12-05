@@ -50,21 +50,7 @@ VALUES
         '1995-08-13',
         '2015-01-01',
         'male'
-    );
-
-INSERT INTO
-    employee(
-        IFSC_code,
-        name,
-        address,
-        pan_number,
-        adhare_number,
-        salary,
-        dob,
-        date_of_joining,
-        gender
-    )
-VALUES
+    ),
     (
         'BOBBOPAL67',
         'devanshu',
@@ -75,4 +61,33 @@ VALUES
         '1990-08-13',
         '2011-12-01',
         'male'
+    );
+
+INSERT INTO
+    account_type_details(
+        account_type,
+        interest_rate,
+        account_management_charges
+    )
+VALUES
+    ('saving', 2.5, 0),
+    ('current', 0, 1500);
+
+-- Creating Bank account with 1cr defualt.
+INSERT INTO
+    account(
+        IFSC_code,
+        account_number,
+        account_type,
+        balance,
+        opening_date
+    )
+VALUES
+    (
+        'BOBBOPAL67',
+        nextval('account_sequence'),
+        'saving',
+        0,
+        SELECT
+            CURRENT_DATE
     );
