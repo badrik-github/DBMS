@@ -1,24 +1,11 @@
 INSERT INTO
     area (pin_code, state, district)
 VALUES
-    (
-        380058,
-        'Gujarat',
-        'Ahmedabad'
-    ),
-    (
-        382160,
-        'Gujarat',
-        'Ahmedabad'
-    );
+    (380058, 'Gujarat', 'Ahmedabad'),
+    (382160, 'Gujarat', 'Ahmedabad');
 
 INSERT INTO
-    branch(
-        pin_code,
-        IFSC_code,
-        branch_name,
-        address
-    )
+    branch(pin_code, IFSC_code, branch_name, address)
 VALUES
     (
         380058,
@@ -30,7 +17,7 @@ VALUES
 INSERT INTO
     employee(
         IFSC_code,
-        name,
+        NAME,
         address,
         pan_number,
         adhare_number,
@@ -85,7 +72,7 @@ INSERT INTO
 VALUES
     (
         'BOBBOPAL67',
-        nextval('account_sequence'),
+        NEXTVAL('account_sequence'),
         'saving',
         0,
         SELECT

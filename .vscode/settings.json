@@ -1,0 +1,4 @@
+{
+    "sql-formatter.dialect": "plsql",
+    "sql-formatter.uppercase": true
+}
