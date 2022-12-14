@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS employee(
 
 CREATE TABLE IF NOT EXISTS account_type_details(
     account_type account_type PRIMARY KEY,
-    interest_rate INTEGER NOT NULL,
+    interest_rate DECIMAL NOT NULL,
     account_management_charges INTEGER
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS account(
     IFSC_code VARCHAR(50) NOT NULL,
     account_number bigint PRIMARY KEY,
     account_type account_type NOT NULL,
-    balance INTEGER DEFAULT 0,
+    balance DECIMAL DEFAULT 0,
     opening_date DATE NOT NULL,
     account_freezed BOOLEAN NOT NULL DEFAULT FALSE,
     bank_internal_account BOOLEAN NOT NULL DEFAULT FALSE,
@@ -51,11 +51,11 @@ CREATE TABLE IF NOT EXISTS account(
 
 CREATE TABLE IF NOT EXISTS account_interest(
     account_number bigint NOT NULL,
-    account_balance_snap INTEGER NOT NULL,
-    calculated_rate INTEGER NOT NULL,
-    interested_amount INTEGER NOT NULL,
+    account_balance_snap DECIMAL NOT NULL,
+    calculated_rate DECIMAL NOT NULL,
+    interested_amount DECIMAL NOT NULL,
     is_deposited BOOLEAN DEFAULT FALSE,
-    transaction_id bigint NOT NULL,
+    transaction_id bigint,
     calculated_date DATE NOT NULL,
     CONSTRAINT account_interest_relation FOREIGN KEY(account_number) REFERENCES account(account_number)
 );
@@ -81,7 +81,7 @@ CREATE SEQUENCE IF NOT EXISTS transaction_sequence START 100000000000 increment 
 
 CREATE TABLE IF NOT EXISTS transactions(
     transaction_id bigint PRIMARY KEY,
-    amount_transfered INTEGER NOT NULL,
+    amount_transfered DECIMAL NOT NULL,
     sender_account_number INTEGER NOT NULL,
     receiver_account_number INTEGER,
     transaction_type transaction_type NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS loan_type_details(
 CREATE TABLE IF NOT EXISTS loan(
     account_number INTEGER NOT NULL,
     loan_id INTEGER NOT NULL PRIMARY KEY,
-    amount INTEGER NOT NULL,
+    amount DECIMAL NOT NULL,
     loan_type loan_type NOT NULL,
     emi INTEGER NOT NULL,
     state_date DATE NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS loan_payments(
 CREATE TABLE IF NOT EXISTS fixed_deposit(
     account_number INTEGER NOT NULL,
     id INTEGER PRIMARY KEY,
-    amount INTEGER NOT NULL,
+    amount DECIMAL NOT NULL,
     interest_rate INTEGER NOT NULL,
     period_in_years INTEGER NOT NULL,
     closed BOOLEAN NOT NULL,

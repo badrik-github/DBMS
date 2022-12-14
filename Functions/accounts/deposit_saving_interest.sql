@@ -1,0 +1,19 @@
+--- THIS FUNCTION IS USED TO OPPEN BANK ACCOUNTS.
+CREATE
+OR REPLACE FUNCTION add_customer(
+    sender_account_number BIGINT,
+    receiver_account_number BIGINT,
+    amount INTEGER
+) RETURNS BOOLEAN LANGUAGE plpgsql AS $$
+DECLARE
+BEGIN
+EXCEPTION
+    WHEN OTHERS THEN RAISE INFO 'Error Name:%',
+    SQLERRM;
+
+RAISE INFO 'Error State:%',
+SQLSTATE;
+
+END;
+
+$$

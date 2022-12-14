@@ -76,3 +76,14 @@ This is a learning project should be used into development/production environmen
 2. Bank needs to be pre-defined.
 3. Every bank has it's own account with balance of 1cr.
 4. Sql file with pre-defined data. [link](./Query/preDefinedData.sql)
+
+
+## Create function List
+
+1. Account
+    1. [ ] Create customer
+    2. [ ] Create account
+    3. [ ] Create joint account
+2. Transaction
+    1. [ ] Perform transaction
+    2. [ ] Print pass book  
