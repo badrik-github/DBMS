@@ -30,7 +30,8 @@ This is a learning project should be used into development/production environmen
 2. Two type of account are supported in this version
     1. Saving account
         - Saving account has a minimum balance limit of Rs.1000, Account with balance lower than this Rs.25 will be deducted monthly.
-        - Interest rate of 3% is provided on the balance of saving account which is calculated monthly. 
+        - Interest rate of 2.5% is provided on the balance of saving account which is calculated monthly.
+        - Interest rate is static 2.5% currently but we can change this and make it variable based on the requirement.  
     2. Current account
         - Current account has a minimum balance limit of Rs.5000, Account with balance lower than this Rs.25 will be deducted monthly.
         - Non-maintenance fee Rs.1500 will be charged quarterly for current account.
@@ -87,3 +88,7 @@ This is a learning project should be used into development/production environmen
 2. Transaction
     1. [ ] Perform transaction
     2. [ ] Print pass book  
+
+
+## Notes
+- **COMMIT** and **ROLLBACK** used for the transactions cannot be used inside a function in postgresql so to manage ACID properties of the transaction we will LOCK the specific rows for update and release after updating it.
