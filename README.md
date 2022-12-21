@@ -13,11 +13,13 @@ This is a learning project should be used into development/production environmen
 - [x] [Create Tables and define relations](./Schema/tables.sql)
 - [x] [Set up db](#set-up-db)
 - [x] [Create pre defined data](#pre-defined-data)
-- [ ] Create function.
-- [ ] Create Triggers.
+- [x] [Create function](#create-function-list)
+- [x] [Create Triggers](./Triggers/Trigger.md)
 - [ ] Enter dummy data.
 - [ ] Create views.
 - [ ] Write queries.
+- [ ] Backup database in regular intervals.
+- [ ] how to deploy a psql database on server.
 
 ## Requirement  
 1. Operating System: [Ubuntu](https://ubuntu.com/)
@@ -82,12 +84,15 @@ This is a learning project should be used into development/production environmen
 ## Create function List
 
 1. Account
-    1. [ ] Create customer
-    2. [ ] Create account
-    3. [ ] Create joint account
-2. Transaction
-    1. [ ] Perform transaction
-    2. [ ] Print pass book  
+    1. [x] Create customer
+    2. [x] Create account
+    3. [x] Create joint account
+    4. [x] Calculate saving account interest
+    5. [x] Deposit saving account interest
+    6. [ ] Create FD
+    7. [ ] Create Loan
+    8. [ ] 
+
 
 
 ## Notes
