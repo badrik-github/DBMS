@@ -91,7 +91,6 @@ This is a learning project should be used into development/production environmen
     5. [x] Deposit saving account interest
     6. [ ] Create FD
     7. [ ] Create Loan
-    8. [ ] 
 
 
 
