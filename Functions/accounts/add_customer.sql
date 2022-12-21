@@ -1,6 +1,5 @@
 --- THIS FUNCTION IS USED TO OPPEN BANK ACCOUNTS.
-CREATE
-OR REPLACE FUNCTION add_customer(
+CREATE OR REPLACE FUNCTION add_customer(
     adhare_number VARCHAR(50),
     pan_number VARCHAR(50),
     NAME VARCHAR(50),
@@ -10,22 +9,19 @@ OR REPLACE FUNCTION add_customer(
 ) RETURNS BOOLEAN LANGUAGE plpgsql AS $$
 DECLARE
 BEGIN
-INSERT INTO
-    customer(adhare_number, pan_number, NAME, gender, address, dob)
-VALUES
-    (adhare_number, pan_number, NAME, gender, address, dob);
+    INSERT INTO
+        customer(adhare_number, pan_number, NAME, gender, address, dob)
+    VALUES
+        (adhare_number, pan_number, NAME, gender, address, dob);
 
-RETURN TRUE;
+    RETURN TRUE;
 
 EXCEPTION
-    WHEN OTHERS THEN RAISE INFO 'Error Name:%',
-    SQLERRM;
+    WHEN OTHERS THEN RAISE INFO 'Error Name:%', SQLERRM;
 
-RAISE INFO 'Error State:%',
-SQLSTATE;
+    RAISE INFO 'Error State:%', SQLSTATE;
 
-RETURN FALSE;
+    RETURN FALSE;
 
 END;
-
 $$

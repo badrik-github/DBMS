@@ -82,10 +82,10 @@ CREATE SEQUENCE IF NOT EXISTS transaction_sequence START 100000000000 increment 
 CREATE TABLE IF NOT EXISTS transactions(
     transaction_id bigint PRIMARY KEY,
     amount_transfered DECIMAL NOT NULL,
-    sender_account_number INTEGER NOT NULL,
-    receiver_account_number INTEGER,
-    transaction_type transaction_type NOT NULL,
+    sender_account_number BIGINT NOT NULL,
+    receiver_account_number BIGINT,
     transaction_status BOOLEAN NOT NULL,
+    transaction_comments VARCHAR(500),
     transaction_time timestamptz DEFAULT NOW() NOT NULL,
     CONSTRAINT sender_transaction_link FOREIGN KEY(sender_account_number) REFERENCES account(account_number),
     CONSTRAINT receiver_transaction_link FOREIGN KEY(receiver_account_number) REFERENCES account(account_number)
