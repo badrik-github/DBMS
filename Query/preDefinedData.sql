@@ -82,3 +82,13 @@ VALUES
         ),
         TRUE
     );
+
+
+INSERT INTO loan_type_details(
+    loan_type,
+    interest_rate,
+    pre_payment_charges
+    ) 
+VALUES
+    ('fixed',12,4),
+    ('variable',12,0);

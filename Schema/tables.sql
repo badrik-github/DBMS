@@ -97,13 +97,16 @@ CREATE TABLE IF NOT EXISTS loan_type_details(
     pre_payment_charges INTEGER
 );
 
+CREATE SEQUENCE IF NOT EXISTS loan_sequence START 100000000000 increment 1;
+
 CREATE TABLE IF NOT EXISTS loan(
-    account_number INTEGER NOT NULL,
+    account_number BIGINT NOT NULL,
     loan_id INTEGER NOT NULL PRIMARY KEY,
     amount DECIMAL NOT NULL,
+    remaining_amount DECIMAL NOT NULL,
     loan_type loan_type NOT NULL,
-    emi INTEGER NOT NULL,
-    state_date DATE NOT NULL,
+    emi DECIMAL NOT NULL,
+    start_date DATE NOT NULL,
     transfer_transaction_id bigint NOT NULL,
     duration_in_years INTEGER NOT NULL,
     closed BOOLEAN NOT NULL,
@@ -113,7 +116,8 @@ CREATE TABLE IF NOT EXISTS loan(
 
 CREATE TABLE IF NOT EXISTS loan_payments(
     transaction_id bigint PRIMARY KEY,
-    amount INTEGER NOT NULL,
+    base_amount DECIMAL NOT NULL,
+    interest_amount DECIMAL NOT NULL,
     loan_id INTEGER NOT NULL,
     date_of_payment DATE NOT NULL,
     CONSTRAINT loan_payment_relation FOREIGN KEY(loan_id) REFERENCES loan(loan_id)
