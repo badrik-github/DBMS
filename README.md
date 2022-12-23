@@ -83,7 +83,7 @@ This is a learning project should be used into development/production environmen
 
 ## Create function List
 
-1. Account
+1. [Account](./Functions/accounts/)
     1. [x] Create customer
     2. [x] Create account
     3. [x] Create joint account
@@ -91,7 +91,7 @@ This is a learning project should be used into development/production environmen
     5. [x] Deposit saving account interest
     6. [x] Deduct current account charges
     7. [x] Deduct saving charges which is under minimum limit
-2. Loan
+2. [Loan](./Functions/loans/loan.md)
     1. [x] Create Loan
     2. [x] Deduct EMI
 3. FD
