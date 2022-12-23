@@ -89,10 +89,13 @@ This is a learning project should be used into development/production environmen
     3. [x] Create joint account
     4. [x] Calculate saving account interest
     5. [x] Deposit saving account interest
-    6. [ ] Create FD
-    7. [ ] Create Loan
-
-
+    6. [x] Deduct current account charges
+    7. [x] Deduct saving charges which is under minimum limit
+2. Loan
+    1. [x] Create Loan
+    2. [x] Deduct EMI
+3. FD
+    1. For FD triggers we can create function and triggers similar to saving_account_interest.
 
 ## Notes
 - **COMMIT** and **ROLLBACK** used for the transactions cannot be used inside a function in postgresql so to manage ACID properties of the transaction we will LOCK the specific rows for update and release after updating it.
